@@ -1,0 +1,1 @@
+ASP.NET Core Web API for Employee with MS SQL Server as database with Clean architecture + CQRS + MediatR pattern

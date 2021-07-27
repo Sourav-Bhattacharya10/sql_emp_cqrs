@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <ItemGroup>
+    <ProjectReference Include="..\sql_emp_cqrs.Persistence\sql_emp_cqrs.Persistence.csproj" />
+    <ProjectReference Include="..\sql_emp_cqrs.Domain\sql_emp_cqrs.Domain.csproj" />
+  </ItemGroup>
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+</Project>
