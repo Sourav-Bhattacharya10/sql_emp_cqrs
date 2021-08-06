@@ -4,6 +4,7 @@
     <ProjectReference Include="..\sql_emp_cqrs.Application\sql_emp_cqrs.Application.csproj" />
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="9.0.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="3.1.17">
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
