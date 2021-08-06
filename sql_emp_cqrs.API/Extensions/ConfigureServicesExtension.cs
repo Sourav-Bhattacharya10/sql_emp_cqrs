@@ -1,7 +1,10 @@
+using MediatR;
 using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using sql_emp_cqrs.Application.Core;
+using sql_emp_cqrs.Application.Employees;
 using sql_emp_cqrs.Persistence;
 
 namespace sql_emp_cqrs.API
@@ -16,6 +19,10 @@ namespace sql_emp_cqrs.API
                 builder.Password = config["DbPassword"]; // dotnet user-secrets set "DbPassword" "***value***"
                 opt.UseSqlServer(builder.ConnectionString);
             });
+
+            services.AddMediatR(typeof(GetAll.Handler).Assembly);
+
+            services.AddAutoMapper(typeof(MappingProfiles).Assembly);
             
             return services;
         }
