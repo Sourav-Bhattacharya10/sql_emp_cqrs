@@ -7,7 +7,8 @@ namespace sql_emp_cqrs.Application.Core
     {
         public MappingProfiles()
         {
-            CreateMap<Employee, Employee>();
+            CreateMap<Employee, EmployeeDTO>()
+                .ReverseMap();
         }
     }
 }
