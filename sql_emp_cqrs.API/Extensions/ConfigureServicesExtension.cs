@@ -6,6 +6,7 @@ using Microsoft.Extensions.DependencyInjection;
 using sql_emp_cqrs.Application.Core;
 using sql_emp_cqrs.Application.Employees;
 using sql_emp_cqrs.Persistence;
+using System;
 
 namespace sql_emp_cqrs.API
 {
@@ -15,8 +16,13 @@ namespace sql_emp_cqrs.API
         {
             services.AddDbContext<DataContext>(opt => 
             {
-                var builder = new SqlConnectionStringBuilder(config.GetConnectionString("DefaultConnection"));
-                builder.Password = config["DbPassword"]; // dotnet user-secrets set "DbPassword" "***value***"
+                var connectionString = config.GetValue<string>("SqlServer2017ConnectionString");
+                var userID = config.GetValue<string>("SqlServer2017UserID");
+                var dbPassword = config.GetValue<string>("SqlServer2017Password");
+                
+                var builder = new SqlConnectionStringBuilder(connectionString);
+                builder.UserID = userID;
+                builder.Password = dbPassword; // dotnet user-secrets set "DbPassword" "***value***"
                 opt.UseSqlServer(builder.ConnectionString);
             });
 
